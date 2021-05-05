@@ -1,0 +1,63 @@
+first one----------
+
+def a(x):
+  for i in range(x, -1,-1):
+    print(i)
+    
+
+a(5)
+      
+
+
+2nd ----------------------
+
+  def a():
+  mylist=[1,2]
+  
+  print(mylist[0])
+  return mylist[1]
+    
+
+print(a())   
+
+3rd -----------------
+
+def a():
+  mylist=[1,2]
+  
+  
+  return (mylist[0]+len(mylist))
+    
+
+print(a())   
+
+
+4th--------------------
+
+list2=[]
+def a(list2):
+  con=0
+  mylist=[1,2,3,4,5,6]
+  
+  for i in range(0,len(mylist)):
+    if(mylist[i] > mylist[1]):
+      list2.append(mylist[i])
+    
+      
+
+    elif(len(mylist)<2):
+      return False
+  return list2
+
+
+
+print(a(list2)) 
+
+5th-------------------
+
+def length_and_value(k,n):
+    newList = []
+    for i in range(k):
+        newList.append(n)
+    return newList
+print(length_and_value(3,8))

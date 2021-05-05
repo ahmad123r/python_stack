@@ -1,0 +1,140 @@
+first one------------------------------
+def biggi():
+  list2=[-1,2,3,5,-6,-7]
+  for i in range(0,len(list2)):
+    if(list2[i]>0):
+      list2[i]="big"
+  return list2
+print(biggi())
+
+
+2end one --------------------------------
+
+def count_pos():
+  list2=[-1,1,1,1]
+  r=0
+  for i in range(0,len(list2)):
+    if(list2[i]>=0):
+      r+=1
+    list2[len(list2)-1]=r
+  return list2
+
+      
+print(count_pos())
+
+3rd-------------------------
+def count_pos(list2):
+  
+  r=0
+  for i in range(0,len(list2)):
+    
+    
+    r+=list2[i]
+  return r
+
+      
+print(count_pos([1,2,3,4,5]))
+
+4th------------------------------
+def count_pos(list2):
+  
+  r=0
+  k=0
+  for i in range(0,len(list2)):
+    
+    
+    r+=list2[i]
+    k=r/len(list2)
+
+  return k
+
+      
+print(count_pos([1,2,3,4,5]))
+
+5th------------------------------
+def count_pos(list2):
+    
+    
+
+  return len(list2)
+
+      
+print(count_pos([1,2,3,4,5]))
+
+6th-----------------------------
+def count_pos(list2):
+  
+  r=list2[0]
+  k=list2[0]
+  for i in range(0,len(list2)):
+    if(list2[i]< r):
+      r=list2[i]
+    
+    
+    
+
+  return r
+
+      
+print(count_pos([1,2,3,4,5]))
+
+7th-----------------------------
+def count_pos(list2):
+  
+  r=list2[0]
+  k=list2[0]
+  for i in range(0,len(list2)):
+    if(list2[i]> r):
+      r=list2[i]
+    
+    
+    
+
+  return r
+
+      
+print(count_pos([1,2,3,4,5]))
+
+8th-----------------------------
+
+def count_pos():
+  list2=[1,2,3,4,5]
+  
+  r=list2[0]
+  k=list2[0]
+  sum=0
+  avg=0
+  for i in range(0,len(list2)):
+    if(list2[i]> r):
+      r=list2[i]
+      
+    if(list2[i]< k):
+      k=list2[i]
+      
+    sum+=list2[i]
+    avg=sum/len(list2)
+  print("avg =",avg)
+  print("sum =",sum)
+  print("min =",k)
+  print("max =",r)
+  print("the length =",len(list2))
+      
+count_pos()
+
+
+9th----------------------
+def a():
+  temp=0
+  
+  list1=[1,2,3,4,5,6]
+  length= (len(list1))
+  r=length/2
+  print(r)
+  for i in range(int(r)):
+    temp=list1[len(list1)-(1+i)]
+    list1[len(list1)-(1+i)]=list1[i]
+    list1[i]=temp
+  return list1
+
+print(a())
+
