@@ -1,0 +1,39 @@
+class BankAccount:
+    def __init__(self,balance,_int_rate):
+        self.balnace=balance
+        self._int_rate=0.01
+    def deposit(self, amount):
+	    self.balance=self.balnace+amount 
+    def withdraw(self, amount):
+        if(amount> self.balnace):
+            print("Insufficient funds: Charging a $5 fee")
+            self.balnace-=5
+        else:
+            self.balance-=amount
+    def display_account_info(self):
+        return self.balance
+    def yield_interest(self):
+        k=0
+        k+=self.balnace*self._int_rate
+        self.balance+=k
+        
+        return self.balance
+rr=BankAccount(550,0.01)
+rr.deposit(900)
+rr.deposit(100)
+rr.deposit(100)
+
+rr.withdraw(200)
+print("without intrest",rr.display_account_info(),"with intrest",rr.yield_interest())
+
+ha=BankAccount(500,0.5)
+ha.deposit(100)
+ha.deposit(100)
+ha.withdraw(100)
+ha.withdraw(100)
+ha.withdraw(100)
+ha.withdraw(100)
+print(ha.display_account_info(),"with intrest",ha.yield_interest())
+
+
+
