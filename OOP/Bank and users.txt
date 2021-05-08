@@ -1,0 +1,45 @@
+class User:		# declare a class and give it name User
+    def __init__(self,x,y):
+        self.name = "Michael"
+        self.email = "michael@codingdojo.com"
+        self.account_balance = BankAccount(x,y)
+        
+    def make_deposite(self, amount):
+        self.account_balance.deposit(amount)
+    def with_drawal(self,amount):
+        self.account_balance.withdraw(amount)
+     
+
+     
+
+class BankAccount:
+    def __init__(self,balance,_int_rate):
+        self.balance=balance
+        self._int_rate=0.01
+
+    def deposit(self, amount):
+        self.balance +=amount
+        # To Test It : 
+        # print(self.balance)
+
+    def withdraw(self, amount):
+        if(amount> self.balance):
+            self.balance-=5
+            print("Insufficient funds: Charging a $5 fee")
+        else:
+            self.balance-=amount
+
+    def display_account_info(self):
+        return self.balance
+
+    def yield_interest(self):
+        self.balance= self.balance+self.balance*self._int_rate
+        return self.balance
+
+amro=User(5000,0.02)
+amro.account_balance.deposit(100)
+print(amro.account_balance.display_account_info())
+
+
+
+
