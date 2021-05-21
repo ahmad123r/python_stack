@@ -1,0 +1,24 @@
+<style>
+    .b{
+        width: 100px;
+        height: 100px;
+        background-color: {{color}};
+        
+        margin: 10px
+        ;
+    }
+    .cont{
+        flex: 1;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    
+</style>
+<html>
+    <div class="cont">
+    {% for i in range (cont)%}
+        <div class="b"></div>
+      {%endfor%}
+    </div>
+</html>
