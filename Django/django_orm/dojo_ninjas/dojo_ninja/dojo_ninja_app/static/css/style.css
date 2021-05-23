@@ -1,0 +1,13 @@
+.forms{
+    display: flex;
+    justify-content: space-evenly;
+}
+h2{
+    font-size: 25px;
+    
+}
+.t5{
+    display: flex;
+    justify-content: center;
+    
+}
