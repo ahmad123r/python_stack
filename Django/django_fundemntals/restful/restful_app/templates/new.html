@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        li{
+            color:red;
+            list-style: none;
+            
+        }
+        h1{
+            font-size: 20px;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +19,23 @@
 <body>
     <a href="/">Go back</a>
     <h1>Add a New Show</h1>
+    {% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> <h1>Warning:</h1>
+                {{ message }}</li>    
+        {% endfor %}
+    </ul>
+{% endif %}
     <form action="/create" method="POST">
         {% csrf_token %}
-        <p>Tilte <input type="text"name="title"></p>
-        <p>NetWork <input type="text"name="network"></p>
-        <p>Release Date: <input type="date"name="rd"></p>
-        <p>Description <input type="text"name="desc"></p>
+        <p>Tilte <input type="text"name="title" required> </p>
+        <p>NetWork <input type="text"name="network" required></p>
+        <p>Release Date: <input type="date"name="rd"required ></p>
+        <p>Description <input type="text"name="desc" required></p>
         <button type="submit">Create</button>
+
+  
 
     </form>
 </body>

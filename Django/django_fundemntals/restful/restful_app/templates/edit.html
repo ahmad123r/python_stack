@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+{% if messages %}
+    <ul class="messages">    
+        {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}> <h1>Warning:</h1>
+                {{ message }}</li>    
+        {% endfor %}
+    </ul>
+{% endif %}
     <form action="/update/{{id}}" method="POST">
         {% csrf_token %}
         <h1>Edit The Show</h1>
-        <p>Tilte <input type="text"name="title"></p>
-        <p>NetWork <input type="text"name="network"></p>
-        <p>Release Date: <input type="date"name="rd"></p>
-        <p>Description <input type="text"name="desc"></p>
+        <p>Tilte <input type="text"name="title" value="{{x.title}}"></p>
+        <p>NetWork <input type="text"name="network" value="{{x.network}}"></p>
+        <p>Release Date: <input type="date"name="rd" value="{{x.release_date}}"></p>
+        <p>Description <input type="text"name="desc" value="{{x.desc}}"></p>
         <button type="submit">Edit</button>
 
     </form>

@@ -35,7 +35,8 @@
           <th>NetWork</th>
           <th>Description</th>
           <th>Release_Date</th>
-          <th>action</th>
+          <th>Updated_at</th>
+          <th>Action</th>
         </tr>
         {% for i in r %}
         <tr>
@@ -44,7 +45,9 @@
           <td>{{i.network}}</td>
           <td>{{i.desc}}</td>
           <td>{{i.release_date}}</td>
+          <td> {{i.updated_at}} </td>
           <td><a href="show/{{i.id}} ">Show</a> | <a href="{{i.id}}/edit">Edit</a> | <a href="delete/{{i.id}} ">Delete</a></td>
+          
         </tr>
         {% endfor %}
 
