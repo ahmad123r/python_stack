@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load staticfiles %}
+</head>
+<body>
+    <form action="/shows/{{x.id}}" method="POST">
+        {% csrf_token %}      
+        <div class="ht" >
+            <h1>TV Show 2</h1> 
+            <a href=""
+
+        </div>
+        
+        <p>Tilte:{{x.title}}</p>
+        <p>NetWork:{{x.network}}</p>
+        <p>Realse_Date:{{x.release_date}}</p>
+        <p>Description:{{x.desc}}</p>
+        <p>Last_Updated:{{x.updated_at}}</p>
+        
+    </form>
+</body>
+</html>

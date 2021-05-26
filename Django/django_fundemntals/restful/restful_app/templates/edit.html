@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/update/{{id}}" method="POST">
+        {% csrf_token %}
+        <h1>Edit The Show</h1>
+        <p>Tilte <input type="text"name="title"></p>
+        <p>NetWork <input type="text"name="network"></p>
+        <p>Release Date: <input type="date"name="rd"></p>
+        <p>Description <input type="text"name="desc"></p>
+        <button type="submit">Edit</button>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load staticfiles %}
+</head>
+<body>
+    
+    <h1>Add a New Show</h1>
+    
+    <table>
+        <tr>
+            <th>ID:</th>
+          <th>Title</th>
+          <th>NetWork</th>
+          <th>Description</th>
+          <th>Release_Date</th>
+          <th>action</th>
+        </tr>
+        {% for i in r %}
+        <tr>
+            <td>{{i.id}}</td>
+          <td>{{i.title}}</td>
+          <td>{{i.network}}</td>
+          <td>{{i.desc}}</td>
+          <td>{{i.release_date}}</td>
+          <td><a href="show/{{i.id}} ">Show</a> | <a href="{{i.id}}/edit">Edit</a> | <a href="delete/{{i.id}} ">Delete</a></td>
+        </tr>
+        {% endfor %}
+
+      </table>
+     <a href="/new">Add a new </a>
+        
+</body>
+</html>
