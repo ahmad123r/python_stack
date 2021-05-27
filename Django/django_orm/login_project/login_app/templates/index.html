@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load staticfiles %}
+</head>
+<body>
+    {% if messages %}
+<ul class="messages">    
+    {% for message in messages %}    
+        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+    {% endfor %}
+</ul>
+{% endif %}
+    <form action="/cr" method="POST"> 
+        {% csrf_token %}
+    <p>Firstname <input type="text" name="fname" required ></p>
+    <p>Lastname <input type="text" name="lname"required></p>
+    <p>Email <input type="email" name="email" required></p>
+    <p>password <input type="password" name="password" required></p>
+    <p>passwordCNM <input type="password" name="password1"required</p>
+    
+    
+    <button type="submit">Regesterration</button>
+</form>
+<form action="/login" method="POST">
+    {% csrf_token %}
+    <p>Email <input type="email" name="email1"></p>
+    <p>password <input type="password" name="password2"></p>
+    <button type="submit">Login</button>
+
+</form>
+{% for i in user1 %}
+<p>
+
+{{i.first_name}} <br>
+{{i.last_name}} <br>
+{{i.email}}<br>
+<a href="/delete/{{i.id}}">DELETE</a>
+{% if i.password == i.password1 %}
+{{i.password}}
+{% else %}
+<h1 style="color: red;"> the conformation password is Wrong</h1>
+{% endif %}
+
+
+
+</p>
+{% endfor %}
+<h1>{{v}}</h1>
+
+</body>
+</html>
