@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load staticfiles %}
+</head>
+<body>
+    <form action="/add_author" method="POST">
+        {% csrf_token %}
+        <h1>Add an author</h1>
+        <p>FirstName <input type="text" name="fname" > </p>
+        <p>LastName <input type="text" name="lname" > </p>
+       <p>Notes <textarea name="note"  cols="30" rows="10">Notes</textarea></p>
+       <button type="submit" >Add</button>
+       <table>
+        <tr>
+          <th>Id   </th>
+          <th>Name</th>
+          <th>action</th>
+        </tr>
+        {% for i in author %}
+        <tr>
+            <td> {{i.id}} </td>
+          <td>{{i.first_name}} {{i.last_name}}</td>
+          <td>Maria Anders</td>
+          <td> <a href="/authors/{{i.id}}">View</a> </td>
+        </tr>
+        {% endfor %}
+    
+      </table>
+
+    </form>
+</body>
+</html>

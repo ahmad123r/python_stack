@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/books/{{book_a.id}}" method="POST">
+        {% csrf_token %}
+        
+        <h1>{{book_a.title}}</h1>
+        <p>ID:{{book_a.id}} </p>
+        <p>
+            Description:
+        <textarea name="dess" id="" cols="10" rows="5">{{book_a.desc}}</textarea>
+
+    </p>
+
+    
+        <ul> Authors
+            {% for i in book_a.authors.all %}
+            <li>
+                {{i.first_name}} {{i.last_name}}
+            </li>
+            {% endfor %}
+
+        </ul>
+    
+    </form>
+    <form action="/a_b/{{book_a.id}}" method="POST" >
+        {% csrf_token %}
+        <select name="sc" >
+            {% for i in author_all %}
+            {% if i not in book_a.authors.all  %}
+            <option value="{{i.id }}">{{i.first_name}} {{i.last_name}}</option>
+            {% endif %}
+            {% endfor %}
+           
+        </select>
+        <button name="btn" type="submit" >add</button>
+    </form>
+    
+</body>
+</html>
