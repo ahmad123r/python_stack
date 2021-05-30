@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome :{{user.first_name}} {{user.last_name}}</h1>
+    {% if user.id == book.upload_by.id %}
+    
+    <form action="/update/{{book.id}}" method="POST">
+        {% csrf_token %}
+    <p> <input type="text" name="title" value="{{book.title}}"> </p>
+
+    <textarea name="desc"  cols="30" rows="10">{{book.desc}}</textarea>
+    <button type="submit" > Update</button>
+    <a href="/delete1/{{book.id}}">Delete</a>
+</form>
+    {% else %}
+    <h1>here is the info for the book</h1>
+    <p>Book title:{{book.title}}</p>
+    <p>The Book author is : {{book.upload_by.first_name}}</p>
+    <p>Book descriptin:{{book.desc}}</p>
+    <p>The time this book is created is :{{book.created_at}}</p>
+    <p> The last update:{{book.updated_at}} </p>
+    {% endif %}
+    <h1>Users who likes the book</h1>
+    {% for i in book.liked_by.all %}
+    <ul>
+        <li>
+            {{i.first_name}} {{i.last_name}}
+          
+        </li>
+    </ul>
+
+    {% endfor %}
+    {% if user in book.liked_by.all %}
+    <a href="/n_fav/{{book.id}}">unfav</a>
+    {%else %}
+    <a href="/add_fav/{{book.id}}">fav</a>
+    {% endif %}
+
+
+    
+</body>
+</html>

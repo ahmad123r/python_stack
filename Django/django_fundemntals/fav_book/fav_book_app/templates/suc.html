@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/logout">logout</a>
+    <form action="/add_book" method="POST" >
+        {% csrf_token %}
+        <p>Tilte: <input name="title"> </p>
+        <p> <textarea name="desc" cols="30" rows="10"></textarea> </p>
+        <button type="submit" >Add</button>
+    </form>
+
+    {% for i in book1 %}
+    <a href="/book/{{i.id}}">{{i.title}}</a>
+    <p>added by ({{i.upload_by.first_name}}) </p>
+    {% if use in i.liked_by.all %}
+        <p>this book book in your favoraite</p>
+    {% else %}
+        <a href="/add_fav/{{i.id}}">add to fav</a>
+        {% endif %}
+    {% endfor %}
+    
+   
+</body>
+</html>
